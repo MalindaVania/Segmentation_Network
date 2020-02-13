@@ -1,11 +1,4 @@
-## Learning image-to-image translation using paired and unpaired trainingsamples ##
-
-[**Project**](https://tutvision.github.io/Learning-image-to-image-translation-using-paired-and-unpaired-training-samples/) | [**Arxiv**](https://arxiv.org/pdf/1805.03189.pdf) | [**ACCV-2018**](http://accv2018.net/)
-***
-
-![O](https://github.com/Blade6570/Learningimage-to-imagetranslationusingpairedandunpairedtrainingsamples/blob/master/teaser.png?raw=true "Comparision with other methods")
-
-This is the part of implementation for the  "Learning image-to-image translation using paired and unpaired training samples" (https://arxiv.org/pdf/1805.03189.pdf). **_This paper is accepted in ACCV 2018_**. 
+## Medical Image Segmentation using paired and unpaired trainingsamples ##
 
  **Prerequisites**
  1. Python 3.5.4
@@ -13,31 +6,31 @@ This is the part of implementation for the  "Learning image-to-image translation
  3. Visdom and dominate
  
  **Training**
- 1. Downlaod cityscapes datasets as in pix2pix and cyclegan as sugggested in [here](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) 
+ 1. Prepare the datasets 
  2. Create a folder name *datasets* with the subfolder structures as given in this repo.
  3. Keep the paired data in *train*-subfolder and unpaired data in *trainA* and *trainB* subfolders.
  4. Then run: *python train.py --dataroot ./datasets --model cycle_gan --dataset_mode unaligned --which_model_netG resnet_9blocks --which_direction AtoB --super_epoch 50 --super_epoch_start 0 --super_mode aligned --super_start 1 --name mygan_70 --no_dropout*
  
 **Testing**
- 1. Downlaod cityscapes test data as in cyclegan as sugggested in [here](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) 
+ 1. Prepare the test datasets
  2. Keep the test data in *testA* and *testB* subfolders within *datasets* folder.
  3. Then run: *python test.py --dataroot ./datasets --model cycle_gan --dataset_mode unaligned --which_model_netG resnet_9blocks --which_direction AtoB --name mygan_70 --how_many 100*
  
  **Training Tips:**
  1. With less paired data, increase the --super_epoch value for better results. 
  2. With No paired data, set --super_start 0. 
- 3. For no unpaired data, set --super_epoch and --niter to same value. We have not included the VGG loss in the training script (Commented part). We will update this soon. *For any help, please contact us at:  soumya.tripathy@tuni.fi*
+ 3. For no unpaired data, set --super_epoch and --niter to same value. The VGG loss is not included.
  
  **If you are using this implementation for your research work then please cite us as:** 
 
 ```
 #Citation 
 
-@article{tripathy+kannala+rahtu,
-  title={Learning image-to-image translation using paired and unpaired training samples},
-  author={Tripathy, Soumya and Kannala, Juho and Rahtu, Esa},
-  journal={arXiv preprint arXiv:1805.03189},
-  year={2018}
+@article{Vania+Lee,
+  title={Lumbar Vertebrae Synthetic Segmentation in Computed Tomography Images Using Hybrid Deep Generative Adversarial Networks},
+  author={Vania, Malinda and Lee, Deukhee},
+  journal={submitted to EMBC 2020
+  year={2020
 }
 
 ```
